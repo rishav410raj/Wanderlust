@@ -177,3 +177,68 @@ background-color: white;
 .tax-toggle {
     margin-left: auto;
 }
+
+
+/* Responsive design for mobile devices */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+/* Listing cards */
+.listing-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.listing-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .show-card {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .btn {
+        max-width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+
+    #map {
+        width: 100%;
+    }
+}
