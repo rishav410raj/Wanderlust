@@ -1,0 +1,127 @@
+```ejs
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3>Create a New Listing</h3>
+
+        <form
+            method="POST"
+            action="/listings"
+            novalidate
+            class="needs-validation"
+            enctype="multipart/form-data"
+        >
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input
+                    name="listing[title]"
+                    id="title"
+                    placeholder="Enter title"
+                    type="text"
+                    class="form-control"
+                    required
+                >
+                <div class="valid-feedback">Title Looks Good!</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                    name="listing[description]"
+                    id="description"
+                    class="form-control"
+                    required
+                ></textarea>
+                <div class="invalid-feedback">Enter a short description.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input
+                    name="listing[image]"
+                    id="image"
+                    type="file"
+                    class="form-control"
+                    accept="image/png,image/jpeg"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input
+                    name="listing[price]"
+                    id="price"
+                    placeholder="Enter price"
+                    type="number"
+                    min="0"
+                    class="form-control"
+                    required
+                >
+                <div class="invalid-feedback">Enter a valid price.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input
+                    name="listing[country]"
+                    id="country"
+                    placeholder="Enter country name"
+                    type="text"
+                    class="form-control"
+                    required
+                >
+                <div class="invalid-feedback">Country name should be valid.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input
+                    name="listing[location]"
+                    id="location"
+                    placeholder="Enter location"
+                    type="text"
+                    class="form-control"
+                    required
+                >
+                <div class="invalid-feedback">Location should be valid.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="categories" class="form-label">Categories</label>
+
+                <select
+                    name="listing[categories]"
+                    id="categories"
+                    class="form-select"
+                    multiple
+                    required
+                >
+                    <option value="Trending">Trending</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Iconic Cities">Iconic Cities</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Amazing Pools">Amazing Pools</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Arctic">Arctic</option>
+                </select>
+
+                <div class="form-text">
+                    Hold Ctrl and click to select multiple categories.
+                </div>
+            </div>
+
+            <br>
+
+            <button type="submit" class="btn btn-dark add-btn">
+                Add Listing
+            </button>
+
+            <br><br>
+        </form>
+    </div>
+</div>
+```
