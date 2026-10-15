@@ -31,16 +31,25 @@ module.exports.isLoggedIn= (req, res, next) => {
    next();
  }
 
- module.exports. validateListing = (req, res, next) => {
-    console.log(req.body);
-    let { error } = listingSchema.validate(req.body);
+ module.exports.validateListing = (req, res, next) => {
+    if (req.body.listing?.categories) {
+        if (!Array.isArray(req.body.listing.categories)) {
+            req.body.listing.categories = [
+                req.body.listing.categories
+            ];
+        }
+    }
+
+    const { error } = listingSchema.validate(req.body);
 
     if (error) {
-        let errMsg = error.details.map((el) => el.message).join(",");
+        const errMsg = error.details
+            .map((el) => el.message)
+            .join(", ");
         throw new ExpressError(400, errMsg);
-    } else {
-        next();
     }
+
+    next();
 };
 
 module.exports.validateReview = (req, res, next) => {
